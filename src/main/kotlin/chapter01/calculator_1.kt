@@ -1,7 +1,5 @@
 package chapter01
 
-import java.lang.IllegalArgumentException
-
 fun main(args:Array<String>){
     val calculator = SimpleCalculator()
     println(calculator.calculate('+',3,1))
