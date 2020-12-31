@@ -65,4 +65,22 @@ open class RecursiveKtTest {
         )
 
     }
+
+    @Test
+    fun zip() {
+        val result = zip(listOf(1,2), listOf(5,6,7))
+        Assertions.assertEquals(listOf(Pair(1,5), Pair(2,6)),result)
+    }
+
+    @Test
+    fun quickSort() {
+        val result = quickSort(listOf(2,5,3,4,1))
+        Assertions.assertEquals(listOf(1,2,3,4,5),result)
+    }
+
+    @Test
+    fun gcd() {
+        val result = gcd(60,48)
+        Assertions.assertEquals(12,result)
+    }
 }

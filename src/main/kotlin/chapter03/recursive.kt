@@ -59,3 +59,25 @@ fun elem(num: Int, list: List<Int>): Boolean = when {
     list.size <= 1 -> false
     else -> elem(num, list.subList(1, list.size))
 }
+
+fun zip(list1: List<Int>, list2: List<Int>): List<Pair<Int, Int>> = when {
+    list1.isEmpty() || list2.isEmpty() -> listOf()
+    else -> listOf(Pair(list1.head(), list2.head())) + zip(list1.tail(), list2.tail())
+}
+
+fun quickSort(list: List<Int>, pivotIndex: Int = 0): List<Int> = when {
+    list.size < 2 -> list
+    else -> {
+        val pair = list.partition { it < list[pivotIndex] }
+        listOf(
+            quickSort(pair.first),
+            listOf(list[pivotIndex]),
+            quickSort(pair.second.filter { it != list[pivotIndex] })
+        ).flatten()
+    }
+}
+
+fun gcd(m: Int, n: Int): Int = when {
+    m % n == 0 -> n
+    else -> gcd(n, m % n)
+}
